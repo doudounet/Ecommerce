@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.ecommerce.mappers.ProduitMapper">
+
+
+  <select id="getProduitById" parameterType="int" resultType="com.java.ecommerce.model.Produit">
+     SELECT 
+    *    
+     FROM "PRODUIT"
+     WHERE "idProduit" = #{idProduit}
+  </select>
+  
+   
+
+  <select id="getAllProduits" resultType="com.java.ecommerce.model.Produit">
+   SELECT * FROM "PRODUIT"
+  </select>
+
+  <insert id="insertPRODUIT">
+   INSERT INTO "PRODUIT"("idProduit", "nomProduit", "prixUnitaireProduit", "descriptionProduit", "shortDescriptionProduit)
+    VALUES(#{idProduit}, #{nomProduit}, #{prixUnitaireProduit}, #{descriptionProduit}, #{shortDescriptionProduit})
+  </insert>
+
+  <update id="updateProduit">
+    UPDATE "PRODUIT" 
+    SET
+     "pwdProduit"= #{pwdProduit},
+     "prenomProduit" = #{prenomProduit},
+     "nomProduit" = #{nomProduit}
+    WHERE "idProduit" = #{idProduit}
+  </update>
+
+  <delete id="deleteProduit" parameterType="int">
+    DELETE FROM "PRODUIT" WHERE "idProduit" = #{idProduit}
+  </delete>
+
+</mapper>
