@@ -53,7 +53,7 @@
 					<div class="control-group">
 						<label class="control-label"> Mot de Passe </label>
 						<div class="controls">
-							<input type="text" name="password" path="password" title="Mot de Passe" value=""/>
+							<input type="password" name="password" path="password" title="Mot de Passe" value=""/>
 							<!-- <form:errors path="password" cssStyle="color:#ff0000"/> -->
 						</div>
 					</div>
