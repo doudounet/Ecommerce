@@ -77,12 +77,13 @@
 
 
 		   <!-- STEP 1 : DATASOURCE -->
-		    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		    	<property name="driverClassName" value="org.postgresql.Driver" />
-				<property name="url" value="jdbc:postgresql://localhost:5432/ecommerce" />
-				<property name="username" value="postgres"/>
-				<property name="password" value="postgres" />
-		     </bean>
+
+<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    <property name="url" value="jdbc:mysql://cloud.mylittlestorage.fr:3306/ecommerce" />
+    <property name="username" value="epsi" />
+    <property name="password" value="epsi" />
+</bean>
 		     
 		    <!-- Declare a transaction manager -->
 		    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
