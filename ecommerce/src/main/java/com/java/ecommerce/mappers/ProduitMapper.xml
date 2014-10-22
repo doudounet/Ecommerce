@@ -8,32 +8,32 @@
   <select id="getProduitById" parameterType="int" resultType="com.java.ecommerce.model.Produit">
      SELECT 
     *    
-     FROM "PRODUIT"
-     WHERE "idProduit" = #{idProduit}
+     FROM PRODUIT
+     WHERE idProduit = #{idProduit}
   </select>
   
    
 
   <select id="getAllProduits" resultType="com.java.ecommerce.model.Produit">
-   SELECT * FROM "PRODUIT"
+   SELECT * FROM PRODUIT
   </select>
 
   <insert id="insertPRODUIT">
-   INSERT INTO "PRODUIT"("idProduit", "nomProduit", "prixUnitaireProduit", "descriptionProduit", "shortDescriptionProduit)
+   INSERT INTO PRODUIT(idProduit, nomProduit, prixUnitaireProduit, descriptionProduit, shortDescriptionProduit)
     VALUES(#{idProduit}, #{nomProduit}, #{prixUnitaireProduit}, #{descriptionProduit}, #{shortDescriptionProduit})
   </insert>
 
   <update id="updateProduit">
-    UPDATE "PRODUIT" 
+    UPDATE PRODUIT 
     SET
-     "pwdProduit"= #{pwdProduit},
-     "prenomProduit" = #{prenomProduit},
-     "nomProduit" = #{nomProduit}
-    WHERE "idProduit" = #{idProduit}
+     pwdProduit= #{pwdProduit},
+     prenomProduit = #{prenomProduit},
+     nomProduit = #{nomProduit}
+    WHERE idProduit = #{idProduit}
   </update>
 
   <delete id="deleteProduit" parameterType="int">
-    DELETE FROM "PRODUIT" WHERE "idProduit" = #{idProduit}
+    DELETE FROM PRODUIT WHERE idProduit = #{idProduit}
   </delete>
 
 </mapper>
