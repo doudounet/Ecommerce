@@ -23,7 +23,7 @@
         <ul class="nav navbar-nav">
           <li class="active"> <a href="#">${logClient}</a> </li>
           <li> <a href="logout">Deconnexion</a> </li>
-          <li> <a href="panier">Panier</a> </li>
+          <li> <a href="rechercheproduit"></a> Produits </li>
          
         </ul>
         <form class="navbar-form pull-right" action="rechercheproduit">

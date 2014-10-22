@@ -3,7 +3,7 @@ package com.java.ecommerce.traitement;
 public class Identification {
 
 	private String utilisateur;
-	private String pwd;
+	private String password;
 
 	public String getUtilisateur() {
 		return utilisateur;
@@ -13,12 +13,12 @@ public class Identification {
 		this.utilisateur = utilisateur;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPwd(final String pwd) {
-		this.pwd = pwd;
+	public void setPassword(final String password) {
+		this.password = password;
 	}
 
 }

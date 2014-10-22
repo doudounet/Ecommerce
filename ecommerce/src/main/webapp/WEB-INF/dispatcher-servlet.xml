@@ -24,7 +24,13 @@
  
  <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
  
-  <bean name="/index.jsp" class="com.java.ecommerce.controller.IndexController"/>
+  <bean name="/index.jsp" class="com.java.ecommerce.controller.IndexController">
+  <property name="validator">
+			<bean class="com.java.eccomerce.traitement.LoginValidator">
+				<property name="userManager" ref="userManager" />
+			</bean>
+		</property>
+  </bean>
   <bean name="/rechercheproduit.jsp" class="com.java.ecommerce.controller.RechercheProduitController"/>
   <bean name="/detailproduit.jsp" class="com.java.ecommerce.controller.DetailProduitController"/>
   <bean name="/panier.jsp" class="com.java.ecommerce.controller.PanierController"/>  -->
@@ -107,6 +113,11 @@
 		        <property name="basePackage" value="com.java.ecommerce.mappers" />
 		    </bean>
 		  
+		   <!-- Application Message Bundle -->
+        <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+                <property name="basename" value="/WEB-INF/messages" />
+                <property name="cacheSeconds" value="3000" />
+        </bean>
 		<!-- <bean id="clientService" class="com.java.ecommerce.service.ClientServiceImpl"/>
 		<bean id="Client" class="com.java.ecommerce.service.model.Client"/> -->
 		</beans>

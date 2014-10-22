@@ -38,12 +38,6 @@
 	    );
 	} );
 	
-	
-	 function voirProduit() {
-	        ;
-	        id = $("#consult").attr('value');
-	      
-	    }
 
 	</script>
 	<div class="container">
@@ -52,8 +46,7 @@
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#"> ${displayname} </a></li>
 			<li><a href="logout">Deconnexion</a></li>
-			<li><a href="panier">Panier</a></li>
-			<li><a href="panier">Modifier les clients</a></li>
+			<li><a href="panier">Interface Utilisateur </a></li>
 
 		</ul>
 
@@ -119,7 +112,7 @@
 		</div>
 
 		<div class=resultsearch>
-			<form action="detailproduit">
+			<form action="detail">
 
 				<table class="table table-striped table-bordered" width="100%" cellspacing="0" id="tablist">
 
@@ -127,12 +120,12 @@
 
 						<tr>
 							
-							<th> Select </th>
+							
 							<th>Produit</th>
 							<th>Prix</th>
 							<th>Description</th>
 							<th></th>
-							<th></th>
+							
 
 
 						</tr>
@@ -145,21 +138,26 @@
 							<tr>
 
 
-
-								<td> <input type="checkbox" value="${p.idProduit}" />     </td>
 								<td><c:out value="${p.nomProduit}"></c:out></td>
 								<td><c:out value="${p.prixUnitaireProduit}"></c:out></td>
 								<td><c:out value="${p.shortDescriptionProduit}"></c:out></td>
 								<td>
+<<<<<<< HEAD
 									<button class="btn btn-default btn-xs" id="detail">
 										<c:out value="/detail/${p.idProduit}"></c:out>
 										<span class="glyphicon glyphicon-search"></span> Détail
+=======
+								 
+									<button class="btn btn-info btn-sm">
+										<a href="<c:url value="/detail/${p.idProduit}/aa"/>" style="color: #FFFFFF">
+										 <span class="glyphicon glyphicon-pencil"> </span> Modifier </a>
+>>>>>>> BettyFava/master
 									</button>
-								</td>
-								<td>
-									<button class="btn btn-default btn-xs">
-										<span class="glyphicon glyphicon-shopping-cart"> </span>
-										Ajouter au panier
+								
+								
+									<button class="btn btn-danger btn-sm">
+										<span class="glyphicon glyphicon-remove"> </span>
+										Delete
 									</button>
 								</td>
 
