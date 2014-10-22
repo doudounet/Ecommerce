@@ -37,9 +37,9 @@ public class RechercheProduitController {
 		String displayname = client.getPrenomClient() + " " + client.getNomClient();
 
 		logger.info("Returning recherche produit view");
-		List<Produit> produits = produitService.getAllProduits();
+		//List<Produit> produits = produitService.getAllProduits();
 		ModelAndView mav = new ModelAndView("rechercheproduit");
-		mav.addObject("produits", produits);
+		//mav.addObject("produits", produits);
 		mav.addObject("displayname", displayname);
 		return mav;
 	}
