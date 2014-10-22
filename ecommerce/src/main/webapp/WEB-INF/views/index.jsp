@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page language="java" contentType="text/html"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 
 
@@ -42,19 +43,21 @@
 			<div class="span12">
 				<fieldset>
 				<legend>Connexion E-commerce </legend>
-				<form class="form-horizontal" method="get" action="login" name="loginForm" id="loginForm" commandName="user">
+				
+				<form:form class="form-horizontal" method="post" action="login" name="identification" id="identification" commandName="identification">
+				<form:errors path="*" cssStyle="color : red;"/>
 					<div class="control-group">
 						<label class="control-label"> Utilisateur </label>
 						<div class="controls">
-							<input type="text" name="utilisateur" path="utilisateur" title="Utilisateur" value=""/>
-							<%-- <form:errors path="login" cssStyle="color:#ff0000"/> --%>
+							<form:input type="text" name="utilisateur" path="utilisateur" title="Utilisateur" value=""/>
+							
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label"> Mot de Passe </label>
 						<div class="controls">
-							<input type="text" name="password" path="password" title="Mot de Passe" value=""/>
-							<!-- <form:errors path="password" cssStyle="color:#ff0000"/> -->
+							<form:input type="password" name="password" path="password" title="Password" value=""/>
+							
 						</div>
 					</div>
 				<br />
@@ -62,7 +65,7 @@
 						<button type="submit" name = "btn btn-success" class="btn btn-success"> Se connecter </button>
 						<button type="button" id="pwdforgotten" class="btn btn-info" onClick="divaffiche()"> Mot de passe oublié </button>
 					</div>
-				</form>	
+				</form:form>	
 				</fieldset>
 			
 				
@@ -76,7 +79,7 @@
 						<div class="control-group">
 							<label class="control-label"> E-Mail </label>
 								<div class="controls">
-									<input type="text" name="email" id="email" title="E-mail" value="">
+									<input type="text" name="ID" id="email" title="E-mail" value="">
 								</div>
 						</div>
 				<br />
