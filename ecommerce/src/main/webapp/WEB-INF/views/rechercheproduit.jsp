@@ -5,7 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
-<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,22 +30,22 @@
 <body>
 
 	<script>
-	$(document).ready(function() {
+	 $(document).ready(function() {
 	    $('#tablist').dataTable(
 	    		{
 	                "bPaginate": false
 	            }
 	    );
 	} );
-	
+	 
 
 	</script>
 	<div class="container">
 
 		<nav class="navbar navbar-inverse">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#"> ${displayname} </a></li>
-			<li><a href="logout">Deconnexion</a></li>
+			<li class="active"><a href="#"> Bienvenue,  ${displayname} ! </a></li>
+			<li><a href="logout">Déconnexion</a></li>
 			<li><a href="panier">Interface Utilisateur </a></li>
 
 		</ul>
@@ -144,12 +144,14 @@
 								<td>
 								 
 									<button class="btn btn-info btn-sm">
-										<a href="<c:url value="/detail/${p.idProduit}/aa"/>" style="color: #FFFFFF">
+									<%-- <a href="<c:url value="detail/${p.idProduit}"/>" style="color: #FFFFFF"> --%>
+										<a href="detail?id=${p.idProduit}" style="color: #FFFFFF"> 
 										 <span class="glyphicon glyphicon-pencil"> </span> Modifier </a>
 									</button>
 								
 								
 									<button class="btn btn-danger btn-sm">
+									<a href="delete?id=${p.idProduit}" style="color: #FFFFFF">
 										<span class="glyphicon glyphicon-remove"> </span>
 										Delete
 									</button>
