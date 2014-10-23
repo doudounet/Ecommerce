@@ -106,4 +106,11 @@ public class IndexController {
 		return mav;
 	}
 
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView Logout() {
+		ModelAndView mav = new ModelAndView("index");
+		mav.addObject("identification", new Identification());
+		return mav;
+	}
+
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,9 +45,12 @@ public class RechercheProduitController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public ModelAndView Logout() {
-		return new ModelAndView("redirect:/index");
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String VoirDetail(@RequestParam(value = "id") Integer idProduit, final HttpSession session) {
+		logger.info("Delete " + idProduit);
+		produitService.deleteProduit(idProduit);
+		return "redirect:/rechercheproduit";
+
 	}
 
 }

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @SessionAttributes("idClient")
-public class PanierController {
+public class UtilisateursController {
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
