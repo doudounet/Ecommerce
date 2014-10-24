@@ -28,6 +28,7 @@
 			<li class="active"> <a href="#"> Bienvenue, ${displayname} !</a></li>
 			<li><a href="logout">Deconnexion</a></li>
 			<li><a href="rechercheproduit">Liste des produits</a></li>
+			<li><a href="utilisateurs">Liste des Utilisateurs </a></li>
 
 		</ul>
 		<form class="navbar-form pull-right">
@@ -51,39 +52,66 @@
             <div class="menu row">
                 <div class="product col-sm-10">
 					<hr>
-                    <h2>Nom</h2>
                     <div class="container-fluid">
 			<div class="row-fluid">
 			<div class="span12">
 				<fieldset>
 				<legend>Modification d'un produit </legend>
 				<div class="row-fluid">
-				<form:form class="form-horizontal" method="post" >
+				<form:form class="form-horizontal" method="post" modelAttribute="produit" action="valider">
 				<form:errors path="*" cssStyle="color : red;"/>
 					<div class="control-group">
+					<div class="row">
+					<div class="col-md-3">
+						<label class="control-label"> Id du produit : </label>
+						</div>
+					<div class="col-md-9">
+						<form:input type="text" path="idProduit" style="width:500px;"/>	
+					</div>
+					</div>
+					<div class="row">
+					<div class="col-md-3">
 						<label class="control-label"> Nom du produit : </label>
-						
-						<input type="text" value='<%= request.getAttribute("nomProduit") %>' style="width:500px;"/>	
+						</div>
+					<div class="col-md-9">
+						<form:input type="text" path="nomProduit" style="width:500px;"/>	
+					</div>
+					</div>
 						
 					</div>
 					<div class="control-group">
-						<label class="control-label"> Prix </label>
-						<div class="controls">
-							
-							
+					<div class="row">
+					<div class="col-md-3">
+						<label class="control-label"> Prix du produit (en euros): </label>
+					</div>
+					<div class="col-md-6">
+						<form:input type="text" path="prixUnitaireProduit" style="width:500px;" />	
+					</div>
+					</div>	
+					</div>
+					<div class="control-group">
+					<div class="row">
+					<div class="col-md-3">
+						<label class="control-label"> Description du produit : </label>
+						</div>
+						<div class="col-md-6">
+						<form:textarea rows="4" cols="68" path="descriptionProduit" />
 						</div>
 					</div>
+					</div>
 					
-						<div class="control-group">
-						<label class="control-label"> Description </label>
-						<div class="controls">
-							
-							
+					<div class="row">
+					<div class="col-md-3">
+						<label class="control-label"> Courte description du produit : </label>
 						</div>
+					<div class="col-md-9">
+						<form:input type="text" path="shortDescriptionProduit" style="width:500px;"/>	
+					</div>
+					</div>	
 					</div>
 				<br />
 					<div class="form-actions">
-						<button type="submit" name = "btn btn-success" class="btn btn-success"> Modifier </button>
+						<button type="submit" name = "btn btn-success" class="btn btn-success" > Valider </button>
 					
 					</div>
 				</form:form>	

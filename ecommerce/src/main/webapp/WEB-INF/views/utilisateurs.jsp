@@ -13,31 +13,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Liste des utilisateurs</title>
 	<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.3/css/jquery.dataTables.min.css" />
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.css">
-	<link href="${pageContext.request.contextPath}/resources/DataTables-1.10.3/css/jquery.dataTables.css" rel="stylesheet">
+	
 	
 	<script type="text/javascript" charset="utf8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   	<script type="text/javascript" charset="utf8" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"</script>
-    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/tabletools/2.2.3/js/dataTables.tableTools.min.js"</script>
-    <script type="text/javascript" charset="utf8" src="http://editor.datatables.net/media/js/dataTables.editor.min.js"</script>
-    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js"</script>
-    <script type="text/javascript" charset="utf8" src="http://editor.datatables.net/examples/resources/bootstrap/editor.bootstrap.js"</script>
-   <script type="text/javascript" charset="utf8" src="${pageContext.request.contextPath}/resources/DataTables-1.10.3/js/jquery.js"></script> 
- <script type="text/javascript" charset="utf8" src="${pageContext.request.contextPath}/resources//DataTables-1.10.3/js/jquery.dataTables.js"></script> 
-</head>
+  
 <body>
 
 	<script>
-	 $(document).ready(function() {
-	    $('#tablist').dataTable(
-	    		{
-	                "bPaginate": false
-	            }
-	    );
-	} );
-	 
+    
 
 	</script>
 	<div class="container">
@@ -46,7 +30,7 @@
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#"> ${displayname} </a></li>
 			<li><a href="logout">Deconnexion</a></li>
-			<li><a href="panier">Interface Utilisateur </a></li>
+			<li><a href="rechercheproduit"> Liste des produits </a></li>
 
 		</ul>
 
@@ -121,9 +105,9 @@
 						<tr>
 							
 							
-							<th>Produit</th>
-							<th>Prix</th>
-							<th>Description</th>
+							<th>Nom</th>
+							<th>Prenom</th>
+							<th>Mail</th>
 							<th></th>
 							
 
@@ -131,26 +115,27 @@
 						</tr>
 
 					</thead>
-					<c:forEach var="p" items="${produits}">
+					<c:forEach var="c" items="${clients}">
 
 						<tbody>
 
 							<tr>
 
 
-								<td><c:out value="${p.nomProduit}"></c:out></td>
-								<td><c:out value="${p.prixUnitaireProduit}"></c:out></td>
-								<td><c:out value="${p.shortDescriptionProduit}"></c:out></td>
+								<td><c:out value="${c.nomClient}"></c:out></td>
+								<td><c:out value="${c.prenomClient}"></c:out></td>
+								<td><c:out value="${c.mailClient}"></c:out></td>
 								<td>
 								 
 									<button class="btn btn-info btn-sm">
-									<a href="<c:url value="detail/${p.idProduit}"/>" style="color: #FFFFFF">
+									<a href="<c:url value="detail/${c.idClient}"/>" style="color: #FFFFFF">
 										<%-- <a href="detail/?id=${p.idProduit}"  style="color: #FFFFFF">  --%>
 										 <span class="glyphicon glyphicon-pencil"> </span> Modifier </a>
 									</button>
 								
 								
 									<button class="btn btn-danger btn-sm">
+									<a href="deleteuser?id=${c.idClient}" style="color: #FFFFFF">
 										<span class="glyphicon glyphicon-remove"> </span>
 										Delete
 									</button>

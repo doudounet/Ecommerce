@@ -8,45 +8,24 @@
 
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html"; charset="ISO-8859-1">
 <title>Recherche d'un produit</title>
 	<link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" href="http://cdn.datatables.net/1.10.3/css/jquery.dataTables.min.css" />
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.3/css/jquery.dataTables.css">
-	<link href="${pageContext.request.contextPath}/resources/DataTables-1.10.3/css/jquery.dataTables.css" rel="stylesheet">
-	
 	<script type="text/javascript" charset="utf8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   	<script type="text/javascript" charset="utf8" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"</script>
-    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/tabletools/2.2.3/js/dataTables.tableTools.min.js"</script>
-    <script type="text/javascript" charset="utf8" src="http://editor.datatables.net/media/js/dataTables.editor.min.js"</script>
-    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js"</script>
-    <script type="text/javascript" charset="utf8" src="http://editor.datatables.net/examples/resources/bootstrap/editor.bootstrap.js"</script>
-   <script type="text/javascript" charset="utf8" src="${pageContext.request.contextPath}/resources/DataTables-1.10.3/js/jquery.js"></script> 
- <script type="text/javascript" charset="utf8" src="${pageContext.request.contextPath}/resources//DataTables-1.10.3/js/jquery.dataTables.js"></script> 
+   
 </head>
 <body>
 
-	<script>
-	 $(document).ready(function() {
-	    $('#tablist').dataTable(
-	    		{
-	                "bPaginate": false
-	            }
-	    );
-	} );
-	 
-
-	</script>
+	
 	<div class="container">
 
 		<nav class="navbar navbar-inverse">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#"> Bienvenue,  ${displayname} ! </a></li>
 			<li><a href="logout">Déconnexion</a></li>
-			<li><a href="panier">Interface Utilisateur </a></li>
+			<li><a href="utilisateurs">Liste des Utilisateurs </a></li>
 
 		</ul>
 
@@ -112,9 +91,15 @@
 		</div>
 
 		<div class=resultsearch>
-			<form action="detail">
-
-				<table class="table table-striped table-bordered" width="100%" cellspacing="0" id="tablist">
+			<form action="detail" method="GET">
+			<div class="form-actions">
+						<button class="btn btn-success"> <a href="new" style="color: #FFFFFF;">  Nouveau </a> </button>
+					
+					</div>
+					
+					<br />
+					<br />
+				<table class="table table-striped table-bordered" width="100%" cellspacing="0" >
 
 					<thead>
 
@@ -122,7 +107,7 @@
 							
 							
 							<th>Produit</th>
-							<th>Prix</th>
+							<th>Prix (en euros)</th>
 							<th>Description</th>
 							<th></th>
 							
@@ -145,8 +130,8 @@
 								 
 									<button class="btn btn-info btn-sm">
 									<%-- <a href="<c:url value="detail/${p.idProduit}"/>" style="color: #FFFFFF"> --%>
-										<a href="detail?id=${p.idProduit}" style="color: #FFFFFF"> 
-										 <span class="glyphicon glyphicon-pencil"> </span> Modifier </a>
+										<a href="detail?id=${p.idProduit}" style="color: #FFFFFF;"> 
+										 <span class="glyphicon glyphicon-pencil"> </span> Update </a>
 									</button>
 								
 								
@@ -163,6 +148,7 @@
 						</tbody>
 					</c:forEach>
 				</table>
+				
 			</form>
 		</div>
 	</div>
