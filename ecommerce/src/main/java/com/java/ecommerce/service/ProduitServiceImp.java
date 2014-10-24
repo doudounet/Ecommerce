@@ -47,4 +47,10 @@ public class ProduitServiceImp implements ProduitService {
 
 	}
 
+	@Override
+	public int getHighProduitId() {
+		// TODO Auto-generated method stub
+		return produitMapper.getHighProduitId();
+	}
+
 }

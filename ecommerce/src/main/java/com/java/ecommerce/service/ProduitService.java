@@ -16,4 +16,6 @@ public interface ProduitService {
 
 	public void deleteProduit(Integer idProduit);
 
+	public int getHighProduitId();
+
 }
