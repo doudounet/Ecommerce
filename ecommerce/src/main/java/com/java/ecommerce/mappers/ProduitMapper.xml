@@ -13,13 +13,16 @@
   </select>
   
    
+ <select id="getHighProduitId" resultType="int">
+SELECT MAX("idProduit") from "PRODUIT"
 
+</select>
   <select id="getAllProduits" resultType="com.java.ecommerce.model.Produit">
    SELECT * FROM "PRODUIT"
   </select>
 
-  <insert id="insertPRODUIT">
-   INSERT INTO "PRODUIT"("idProduit", "nomProduit", "prixUnitaireProduit", "descriptionProduit", "shortDescriptionProduit)
+  <insert id="insertProduit">
+   INSERT INTO "PRODUIT"("idProduit", "nomProduit", "prixUnitaireProduit", "descriptionProduit", "shortDescriptionProduit")
     VALUES(#{idProduit}, #{nomProduit}, #{prixUnitaireProduit}, #{descriptionProduit}, #{shortDescriptionProduit})
   </insert>
 
@@ -28,8 +31,8 @@
     SET
      "descriptionProduit"= #{descriptionProduit},
      "nomProduit" = #{nomProduit},
-     "prixUnitaireProduit" = #{prixUnitaireProduit}
-     "shortDescriptioneProduit" = #{shortDescriptionProduit}
+     "prixUnitaireProduit" = #{prixUnitaireProduit},
+     "shortDescriptionProduit" = #{shortDescriptionProduit}
     WHERE "idProduit" = #{idProduit}
   </update>
 

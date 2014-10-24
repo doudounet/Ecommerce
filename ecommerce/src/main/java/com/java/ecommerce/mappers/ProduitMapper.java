@@ -15,4 +15,5 @@ public interface ProduitMapper {
 
 	public void deleteProduit(Integer idProduit);
 
+	public int getHighProduitId();
 }
