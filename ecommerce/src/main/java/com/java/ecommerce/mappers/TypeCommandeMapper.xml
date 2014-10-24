@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.ecommerce.mappers.TypeCommandeMapper">
+<!-- 
+<resultMap type="TypeCommande" id="TypeCommandeResultMap">
+<id property="idTypeCommande" column="id"/>
+<result property="type" column="type"/>   
+</resultMap> -->
+<select id="getTypeCommandeById" parameterType="int" resultType="com.java.ecommerce.model.TypeCommande">
+	    SELECT 
+	    *    
+	    FROM "typecmd"
+	    WHERE "id" = #{idTypeCommande}
+	</select>
+	<select id="getAllTypeCommande" resultType="com.java.ecommerce.model.TypeCommande">
+	    SELECT 
+	    *    
+	    FROM "typecmd"
+	</select>
+	<select id="getIdTypeCommande" parameterType="TypeCommande" resultType="int">
+	    SELECT 
+	    "id"    
+	    FROM "typecmd"
+	    WHERE "type" = #{type}
+	</select>
+</mapper>
