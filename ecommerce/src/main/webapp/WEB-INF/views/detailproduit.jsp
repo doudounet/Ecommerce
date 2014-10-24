@@ -5,7 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" >
-<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,10 +23,11 @@
 
 		<nav class="navbar navbar-inverse">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#"><%=session.getAttribute("user")%></a>
+			<li class="active"><a href="#"></a>
 			</li>
+			<li class="active"> <a href="#"> Bienvenue, ${displayname} !</a></li>
 			<li><a href="logout">Deconnexion</a></li>
-			<li><a href="panier">Panier</a></li>
+			<li><a href="rechercheproduit">Liste des produits</a></li>
 
 		</ul>
 		<form class="navbar-form pull-right">
@@ -43,27 +44,69 @@
 <div class="container">
     <div class="col-md-12">
         <div class="center-block text-center">
-            <h1>Détail d'un produit </h1>
-            <p class="lead">Vue d'une fiche produit (produit sélectionné dans la vue précédente)</p>
+            <h4> Interface de modification d'un produit </h4>
+      
         </div>
         <div class="container">
             <div class="menu row">
-                <div class="product col-sm-6">
-                  <a href="#"><img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/logounis.PNG" height="450" width="180"><i class="btn btn-product fa fa-star"></i></a>
+                <div class="product col-sm-10">
 					<hr>
                     <h2>Nom</h2>
-                    <p>Description très détaillé</p>
-                    <hr>
-                  	<h2 class="text-right">Prix (en euros)</h2>
-                    <button class="btn btn-primary btn-lg ">Ajouter au panier </button>
-                    <hr>
+                    <div class="container-fluid">
+			<div class="row-fluid">
+			<div class="span12">
+				<fieldset>
+				<legend>Modification d'un produit </legend>
+				<div class="row-fluid">
+				<form:form class="form-horizontal" method="post" >
+				<form:errors path="*" cssStyle="color : red;"/>
+					<div class="control-group">
+						<label class="control-label"> Nom du produit : </label>
+						
+						<input type="text" value='<%= request.getAttribute("nomProduit") %>' style="width:500px;"/>	
+						
+					</div>
+					<div class="control-group">
+						<label class="control-label"> Prix </label>
+						<div class="controls">
+							
+							
+						</div>
+					</div>
+					
+						<div class="control-group">
+						<label class="control-label"> Description </label>
+						<div class="controls">
+							
+							
+						</div>
+					</div>
+				<br />
+					<div class="form-actions">
+						<button type="submit" name = "btn btn-success" class="btn btn-success"> Modifier </button>
+					
+					</div>
+				</form:form>	
+				</div>
+				</fieldset>
+			
+				
+			 <br />
+			 <br />
+			 
+				
+			</div>
+		</div>
+	</div>		
                    
                   
                   
                     
                 </div>
-                
+               
             </div>
+            
+            	
             <!--/row-->
         </div>
         <!--/container-->
