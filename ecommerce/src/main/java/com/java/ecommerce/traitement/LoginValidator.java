@@ -16,7 +16,7 @@ public class LoginValidator implements Validator {
 	private ClientService clientService;
 
 	@Override
-	public boolean supports(Class c) {
+	public boolean supports(Class<?> c) {
 		return Identification.class.isAssignableFrom(c);
 	}
 
