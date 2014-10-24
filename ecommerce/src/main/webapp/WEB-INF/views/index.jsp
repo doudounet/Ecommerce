@@ -10,7 +10,7 @@
 
 <html xmlns="http://www.w3c.org/1999/xhtml" 
 	xmlns:jsp="http://java.sun.com/JSP/Page" 
-	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:th="http://www.thymeleaf.org"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
     
     <head>
@@ -63,7 +63,7 @@
 				<br />
 					<div class="form-actions">
 						<button type="submit" name = "btn btn-success" class="btn btn-success"> Se connecter </button>
-						<button type="button" id="pwdforgotten" class="btn btn-info" onClick="divaffiche()"> Mot de passe oublié </button>
+						<button type="button" id="pwdforgotten" class="btn btn-info" onClick="divaffiche()" > Mot de passe oublié </button>
 					</div>
 				</form:form>	
 				</fieldset>
@@ -77,23 +77,24 @@
 				
 					<form class="form-horizontal"  name="resetPasswordForm" id="resetPasswordForm">
 						<div class="control-group">
-							<label class="control-label"> E-Mail </label>
+							<label class="control-label"> Login </label>
 								<div class="controls">
-									<input type="text" name="ID" id="email" title="E-mail" value="">
+									<span class="help-block">Renseignez votre login afin d'afficher le mot de passe </span>
 								</div>
 						</div>
-				<br />
-					Vous allez recevoir par courrier électronique la procédure pour changer votre mot de passe.
-				<br />
+			
 				<br />
 						<div class="form-actions">
-							<button type="submit" class="btn btn-warning" onclick="divhidden()"> Demander un nouveau mot de passe </button>
+							<button type="submit" class="btn btn-warning" onclick="divhidden()" action="display"> Retour </button>
 						<br />
 						</div>
 					
 					</form>
 					
 				</div>
+				
+				
+				
 				
 			</div>
 		</div>

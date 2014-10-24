@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.ecommerce.mappers.TypeMembreMapper">
+<!-- 
+<resultMap type="TypeMembre" id="TypeMembreResultMap">
+<id property="idTypeMembre" column="id"/>
+<result property="type" column="type"/>   
+</resultMap> -->
+
+	<select id="getTypeMembreById" parameterType="int" resultType="com.java.ecommerce.model.TypeMembre">
+	    SELECT 
+	    *    
+	    FROM "typemembre"
+	    WHERE "id" = #{idTypeMembre}
+	</select>
+	
+	<select id="getAllTypeMembre" resultType="com.java.ecommerce.model.TypeMembre">
+	    SELECT 
+	    *    
+	    FROM "typemembre"
+	</select>
+	
+	<select id="getIdTypeMembre" parameterType="TypeMembre" resultType="int">
+	    SELECT 
+	    "id"    
+	    FROM "typemembre"
+	    WHERE "type" = #{type}
+	</select>
+</mapper>
