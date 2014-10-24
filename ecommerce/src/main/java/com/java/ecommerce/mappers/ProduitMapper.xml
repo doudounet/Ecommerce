@@ -26,9 +26,10 @@
   <update id="updateProduit">
     UPDATE "PRODUIT" 
     SET
-     "pwdProduit"= #{pwdProduit},
-     "prenomProduit" = #{prenomProduit},
-     "nomProduit" = #{nomProduit}
+     "descriptionProduit"= #{descriptionProduit},
+     "nomProduit" = #{nomProduit},
+     "prixUnitaireProduit" = #{prixUnitaireProduit}
+     "shortDescriptioneProduit" = #{shortDescriptionProduit}
     WHERE "idProduit" = #{idProduit}
   </update>
 
