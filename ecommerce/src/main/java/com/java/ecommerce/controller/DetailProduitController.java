@@ -6,6 +6,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,40 +30,60 @@ public class DetailProduitController {
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
-	// @ModelAttribute
-	// public Produit newProduct(
-	// @RequestParam(value = "id", required = false) Integer productNumber) {
-	// if (productNumber != null) {
-	// logger.info("find product " + productNumber);
-	// return manager.find(productNumber);
-	// }
-	// Product p = new Product();
-	// p.setNumber(null);
-	// p.setName("");
-	// p.setPrice(0.0);
-	// p.setDescription("");
-	// logger.info("new product = " + p);
-	// return p;
-	// }
-
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public ModelAndView VoirDetail(@RequestParam(value = "id") Integer idProduit, final HttpSession session) {
+	public ModelAndView VoirDetail(@RequestParam(value = "id", required = false) Integer idProduit, final HttpSession session) {
 		logger.info("ID " + idProduit);
 		int idClientLog = (Integer) session.getAttribute("idClient");
-		Produit produit = produitService.getProduitById(idProduit);
 		Client client = clientService.getClientById(idClientLog);
 		String displayname = client.getPrenomClient() + " " + client.getNomClient();
 		ModelAndView mv = new ModelAndView("detailproduit");
-		// mv.addObject("produit", produit);
-		mv.addObject("nomProduit", produit.getNomProduit());
-		mv.addObject("prixUnitaireProduit", produit.getPrixUnitaireProduit());
-		mv.addObject("descriptionProduit", produit.getDescriptionProduit());
+		Produit produit = produitService.getProduitById(idProduit);
+		mv.addObject("produit", produit);
 		mv.addObject("displayname", displayname);
-
-		logger.info("ID");
 		return mv;
+
 	}
+
+	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	public ModelAndView NewProduit(final HttpSession session) {
+		logger.info("new produit" + produitService.getHighProduitId());
+		int idClientLog = (Integer) session.getAttribute("idClient");
+		Client client = clientService.getClientById(idClientLog);
+		String displayname = client.getPrenomClient() + " " + client.getNomClient();
+		ModelAndView mv = new ModelAndView("detailproduit");
+		int newId = (produitService.getHighProduitId() + 1);
+		Produit produit = new Produit();
+		produit.setIdProduit(newId);
+		produit.setNomProduit("A completer");
+		produit.setPrixUnitaireProduit(0);
+		produit.setShortDescriptionProduit("A completer");
+		produit.setDescriptionProduit("A completer");
+		produitService.insertProduit(produit);
+		logger.info(produit.getIdProduit());
+		mv.addObject("produit", produit);
+		mv.addObject("displayname", displayname);
+		return mv;
+
+	}
+
+	@RequestMapping(value = "valider", method = RequestMethod.POST)
+	public String Valider(@ModelAttribute(value = "produit") Produit produit, Model model) {
+		logger.info("Delete " + produit);
+		produitService.updateProduit(produit);
+		return "redirect:/rechercheproduit";
+
+	}
+
+	// mv.addObject("nomProduit", produit.getNomProduit());
+	// mv.addObject("prixUnitaireProduit",
+	// produit.getPrixUnitaireProduit());
+	// mv.addObject("idProduit", produit.getIdProduit());
+	// mv.addObject("descriptionProduit", produit.getDescriptionProduit());
+	// mv.addObject("shortDescriptionProduit",
+	// produit.getShortDescriptionProduit());
+
 }
+
 // @RequestMapping(value = "/detail/", method = RequestMethod.GET)
 // public String VoirDetail(@RequestParam(value = "id", required = false),
 // ModelMap map) {
