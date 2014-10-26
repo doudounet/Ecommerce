@@ -16,45 +16,45 @@
   <select id="getClientById" parameterType="int" resultType="com.java.ecommerce.model.Client">
      SELECT 
     *    
-     FROM "CLIENT"
-     WHERE "idClient" = #{idClient}
+     FROM client
+     WHERE idClient = #{idClient}
   </select>
   
     <select id="getClientByLogin" resultType="com.java.ecommerce.model.Client">
      SELECT 
       * 
-     FROM "CLIENT"
-     WHERE "loginClient" = #{loginClient}
+     FROM client
+     WHERE loginClient = #{loginClient}
   </select>
   
   <select id="getClientByMail" resultType="com.java.ecommerce.model.Client">
      SELECT 
       * 
-     FROM "CLIENT"
-     WHERE "mailClient" = #{mailClient}
+     FROM client
+     WHERE mailClient = #{mailClient}
   </select>
   
 
   <select id="getAllClients" resultType="com.java.ecommerce.model.Client">
-   SELECT * FROM "CLIENT"
+   SELECT * FROM client
   </select>
 
   <insert id="insertClient">
-   INSERT INTO "CLIENT"("idClient", "loginClient", "pwdClient", "prenomClient", "nomClient, "mailClient")
+   INSERT INTO client(idClient, loginClient, pwdClient, prenomClient, nomClient, mailClient)
     VALUES(#{idClient}, #{loginClient}, #{pwdClient}, #{prenomClient}, #{nomClient}, #{mailClient})
   </insert>
 
   <update id="updateClient">
-    UPDATE "CLIENT" 
+    UPDATE client
     SET
-     "pwdClient"= #{pwdClient},
-     "prenomClient" = #{prenomClient},
-     "nomClient" = #{nomClient}
+     pwdClient= #{pwdClient},
+     prenomClient = #{prenomClient},
+     nomClient = #{nomClient}
     WHERE "idClient" = #{idClient}
   </update>
 
   <delete id="deleteClient" parameterType="int">
-    DELETE FROM "CLIENT" WHERE "idClient" = #{idClient}
+    DELETE FROM client WHERE idClient = #{idClient}
   </delete>
 
 </mapper>

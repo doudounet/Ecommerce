@@ -42,22 +42,20 @@
 		<div class="container">
 			<div class="col-md-12">
 				<div class="center-block text-center">
-					<h1>Formation Framework J2EE</h1>
-					<p class="lead">Unis - Villeneuve d'Ascq</p>
+					<h1>Gestion des commandes</h1>
+					<p class="lead">EPSI - Lille </p>
 				</div>
 				<div class="container"">
 
 					<div id="panel">
 						<div class="col-sm-6">
 							<a href="#"><img class="img-responsive"
-								src="${pageContext.request.contextPath}/resources/img/logounis.PNG"
+								src="${pageContext.request.contextPath}/resources/img/epsi.png"
 								height="450" width="180"><i
 								class="btn btn-product fa fa-star"></i></a>
 							<hr>
 							<h2>Objectifs</h2>
-							<p>Ce site permet de faire connaissance avec les principaux
-								frameworks utilisés chez UNIS (Spring, Mybatis, Hibernate,
-								Maven) et des autres outils (Ajax, jQuery ou encore Bootstrap)</p>
+							<p>Ce site permet la gestion des commandes au sein d'une organisation </p>
 							<hr>
 							<hr>
 
@@ -66,12 +64,10 @@
 						<div class="col-sm-6">
 							<div class="productsrow">
 								<div class="product menu-category">
-									<div class="menu-category-name list-group-item active">An
-										open source application framework and inversion of control
-										container for the Java platform</div>
+									<div class="menu-category-name list-group-item active"> Une application souple, légère pour la gestion des commandes</div>
 									<div class="product-image">
 										<img class="product-image"
-											src="${pageContext.request.contextPath}/resources/img/spring.jpg"
+											src="${pageContext.request.contextPath}/resources/img/ecommerce.jpg"
 											height="180" width="540">
 									</div>
 

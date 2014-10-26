@@ -8,36 +8,36 @@
   <select id="getProduitById" parameterType="int" resultType="com.java.ecommerce.model.Produit">
      SELECT 
     *    
-     FROM "PRODUIT"
-     WHERE "idProduit" = #{idProduit}
+     FROM produit
+     WHERE idProduit = #{idProduit}
   </select>
   
    
  <select id="getHighProduitId" resultType="int">
-SELECT MAX("idProduit") from "PRODUIT"
+SELECT MAX(idProduit) from produit
 
 </select>
   <select id="getAllProduits" resultType="com.java.ecommerce.model.Produit">
-   SELECT * FROM "PRODUIT"
+   SELECT * FROM produit
   </select>
 
   <insert id="insertProduit">
-   INSERT INTO "PRODUIT"("idProduit", "nomProduit", "prixUnitaireProduit", "descriptionProduit", "shortDescriptionProduit")
+   INSERT INTO produit(idProduit, nomProduit, prixUnitaireProduit, descriptionProduit, shortDescriptionProduit)
     VALUES(#{idProduit}, #{nomProduit}, #{prixUnitaireProduit}, #{descriptionProduit}, #{shortDescriptionProduit})
   </insert>
 
   <update id="updateProduit">
-    UPDATE "PRODUIT" 
+    UPDATE produit 
     SET
-     "descriptionProduit"= #{descriptionProduit},
-     "nomProduit" = #{nomProduit},
-     "prixUnitaireProduit" = #{prixUnitaireProduit},
-     "shortDescriptionProduit" = #{shortDescriptionProduit}
-    WHERE "idProduit" = #{idProduit}
+     descriptionProduit= #{descriptionProduit},
+     nomProduit = #{nomProduit},
+     prixUnitaireProduit = #{prixUnitaireProduit},
+     shortDescriptionProduit = #{shortDescriptionProduit}
+    WHERE idProduit = #{idProduit}
   </update>
 
   <delete id="deleteProduit" parameterType="int">
-    DELETE FROM "PRODUIT" WHERE "idProduit" = #{idProduit}
+    DELETE FROM produit WHERE idProduit = #{idProduit}
   </delete>
 
 </mapper>

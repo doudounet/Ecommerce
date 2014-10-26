@@ -29,6 +29,12 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		
+		<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.6</version>
+</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -79,11 +85,27 @@
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>1.2.2</version>
 		</dependency>
+		
+  		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		  </dependency>
+		
+		
+  		<!-- postgresql inutile sur le projet -->
 			 <dependency>
 		<groupId>postgresql</groupId>
 		<artifactId>postgresql</artifactId>
 		<version>9.0-801.jdbc4</version>
 		</dependency>
+		<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.6</version>
+</dependency>
+		
   		
   		
   		<!-- JSTL -->
