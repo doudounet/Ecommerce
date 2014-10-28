@@ -40,8 +40,8 @@
   </select>
 
   <insert id="insertClient">
-   INSERT INTO client(idClient, loginClient, pwdClient, prenomClient, nomClient, mailClient)
-    VALUES(#{idClient}, #{loginClient}, #{pwdClient}, #{prenomClient}, #{nomClient}, #{mailClient})
+   INSERT INTO client(idClient, loginClient, pwdClient, prenomClient, nomClient, mailClient, typeClient)
+    VALUES(#{idClient}, #{loginClient}, #{pwdClient}, #{prenomClient}, #{nomClient}, #{mailClient}, #{typeClient})
   </insert>
 
   <update id="updateClient">
