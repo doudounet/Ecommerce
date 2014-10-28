@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.ecommerce.mappers.MembreMapper">
+    
+  <insert id="insertMembre">
+   	INSERT INTO membre(id, login, password, nom, prenom, type)
+    VALUES(#{id}, #{login}, #{password}, #{nom}, #{prenom}, #{type})
+  </insert>
+
+  <update id="updateMembre">
+    UPDATE membre
+    SET
+     password= #{password},
+     prenom = #{prenom},
+     nom = #{nom}
+    WHERE "id" = #{id}
+  </update>
+
+  <delete id="deleteMembre" parameterType="int">
+    DELETE FROM membre WHERE id = #{id}
+  </delete>
+  
+  <select id="getAllMembre" resultType="com.java.ecommerce.model.Membre">
+   SELECT * FROM membre
+  </select>
+	
+    <select id="getMembreByLogin" parameterType="String" resultType="com.java.ecommerce.model.Membre">
+     SELECT 
+     * 
+     FROM membre
+     WHERE login = #{login}
+  </select>
+  
+  <select id="getMembreById" parameterType="int" resultType="com.java.ecommerce.model.Membre">
+	SELECT 
+	*    
+	FROM membre
+	WHERE id = #{id}
+  </select>
+
+  <select id="getMembreByType" parameterType="String" resultType="com.java.ecommerce.model.Membre">
+     SELECT 
+      * 
+     FROM "Membre"
+     WHERE "type" = #{typeMembre}
+  </select>
+  
+
+
+  
+</mapper>
