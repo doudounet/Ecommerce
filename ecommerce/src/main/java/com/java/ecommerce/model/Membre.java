@@ -63,6 +63,6 @@ public class Membre {
 	public void setTypeMembre(String typeMembre) {
 		this.typeMembre = typeMembre;
 	}
-	
+}
 	
 	

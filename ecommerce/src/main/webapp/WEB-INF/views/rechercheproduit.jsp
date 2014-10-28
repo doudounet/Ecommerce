@@ -104,7 +104,7 @@
 							
 							
 							<th width="9%">Commande</th>
-							<th width="30%">Libéllé</th>
+							<th width="30%">Libellé</th>
 							<th width="12%">Début</th>
 							<th width="11%">Fin</th>
                             <th width="21%">Par</th>
@@ -117,7 +117,7 @@
 						</tr>
 
 					</thead>
-					<c:forEach var="p" items="${commande}">
+					<c:forEach var="p" items="${commandes}">
 
 						<tbody>
 
@@ -140,7 +140,7 @@
 									<button class="btn btn-danger btn-sm">
 									<a href="delete?id=${p.id}" style="color: #FFFFFF">
 										<span class="glyphicon glyphicon-remove"> </span>
-										Delete
+										Delete </a>
 									</button></td>
 
 							</tr>
