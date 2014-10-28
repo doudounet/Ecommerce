@@ -105,6 +105,7 @@
 							<th>Nom</th>
 							<th>Prenom</th>
 							<th>Mail</th>
+							<th>Type</th>
 							<th></th>
 							
 
@@ -122,6 +123,7 @@
 								<td><c:out value="${c.nomClient}"></c:out></td>
 								<td><c:out value="${c.prenomClient}"></c:out></td>
 								<td><c:out value="${c.mailClient}"></c:out></td>
+								<td><c:out value="${c.typeClient}"></c:out></td>
 								<td>
 								 
 									<button class="btn btn-info btn-sm">

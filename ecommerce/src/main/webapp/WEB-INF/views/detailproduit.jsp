@@ -25,7 +25,7 @@
 			</li>
 			<li class="active"> <a href="#"> Bienvenue, ${displayname} !</a></li>
 			<li><a href="logout">Deconnexion</a></li>
-			<li><a href="rechercheproduit">Liste des produits</a></li>
+			<li><a href="rechercheproduit">Liste des commandes</a></li>
 			<li><a href="utilisateurs">Liste des Utilisateurs </a></li>
 
 		</ul>
@@ -43,7 +43,7 @@
 <div class="container">
     <div class="col-md-12">
         <div class="center-block text-center">
-            <h4> Interface de modification d'un produit </h4>
+            <h4> Interface de modification d'une commande </h4>
       
         </div>
         <div class="container">
@@ -56,7 +56,7 @@
 				<fieldset>
 				<legend>Modification d'une commande</legend>
 				<div class="row-fluid">
-				<form:form class="form-horizontal" method="post" modelAttribute="produit" action="valider">
+				<form:form class="form-horizontal" method="post" modelAttribute="commande" action="valider">
 				<form:errors path="*" cssStyle="color : red;"/>
 					<div class="control-group">
 					<div class="row">
@@ -69,7 +69,7 @@
 					</div>
 					<div class="row">
 					<div class="col-md-3">
-						<label class="control-label"> Libéllé : </label>
+						<label class="control-label"> Libellé : </label>
 						</div>
 					<div class="col-md-9">
 						<form:input type="text" path="libelle" style="width:500px;"/>	
@@ -93,7 +93,7 @@
 						<label class="control-label"> Date de fin: </label>
 						</div>
 						<div class="col-md-6">
-						<form:textarea rows="4" path="datefin" />
+						<form:input type="text" path="datefin" style="width:500px;" />
 						</div>
 					</div>
 					</div>
@@ -103,7 +103,7 @@
 						<label class="control-label"> Dernière modifcation: </label>
 						</div>
 						<div class="col-md-6">
-						<form:textarea rows="4" path="personnemaj" />
+						<form:input type="text" path="personnemaj" style="width:500px;" />
 						</div>
 					</div>
 					</div>

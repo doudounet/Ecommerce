@@ -42,7 +42,7 @@ SELECT MAX(id) from commande
      datefin = #{datefin},
      personnemaj = #{personnemaj},
      type = #{type}
-    WHERE "id" = #{id}
+    WHERE id = #{id}
   </update>
 
   <delete id="deleteCommande" parameterType="int">

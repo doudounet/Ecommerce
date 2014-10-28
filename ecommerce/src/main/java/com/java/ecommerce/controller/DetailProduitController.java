@@ -58,7 +58,7 @@ public class DetailProduitController {
 		commande.setId(newId);
 		commande.setLibelle("A completer");
 		commande.setDatedebut("A completer");
-		commande.setDatedebut("A completer");
+		commande.setDatefin("A completer");
 		commande.setPersonnemaj("A completer");
 		commande.setType("A completer");
 		commandeService.insertCommande(commande);
@@ -71,7 +71,7 @@ public class DetailProduitController {
 
 	@RequestMapping(value = "valider", method = RequestMethod.POST)
 	public String Valider(@ModelAttribute(value = "commande") Commande commande, Model model) {
-		logger.info("Delete " + commande);
+		logger.info("Update " + commande);
 		commandeService.updateCommande(commande);
 		return "redirect:/rechercheproduit";
 

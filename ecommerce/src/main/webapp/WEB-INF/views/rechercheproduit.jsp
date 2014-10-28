@@ -104,12 +104,12 @@
 							
 							
 							<th width="9%">Commande</th>
-							<th width="30%">Libellé</th>
+							<th width="25%">Libellé</th>
 							<th width="12%">Début</th>
 							<th width="11%">Fin</th>
-                            <th width="21%">Par</th>
+                            <th width="16%">Par</th>
                             <th width="7%">Statut</th>
-                            <th width="10%"></th>
+                            <th width="20%"></th>
                             
 							
 
