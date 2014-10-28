@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.java.ecommerce.model.Client;
-import com.java.ecommerce.model.Produit;
+import com.java.ecommerce.model.Commande;
 import com.java.ecommerce.service.ClientService;
-import com.java.ecommerce.service.ProduitService;
+import com.java.ecommerce.service.CommandeService;
 
 @Controller
 @SessionAttributes("idClient")
@@ -27,20 +27,20 @@ public class DetailProduitController {
 	@Autowired
 	private ClientService clientService;
 	@Autowired
-	private ProduitService produitService;
+	private CommandeService commandeService;
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
 	@ResponseBody
-	public ModelAndView VoirDetail(@RequestParam(value = "id", required = false) Integer idProduit, final HttpSession session) {
-		logger.info("ID " + idProduit);
+	public ModelAndView VoirDetail(@RequestParam(value = "id", required = false) Integer id, final HttpSession session) {
+		logger.info("ID " + id);
 		int idClientLog = (Integer) session.getAttribute("idClient");
 		Client client = clientService.getClientById(idClientLog);
 		String displayname = client.getPrenomClient() + " " + client.getNomClient();
 		ModelAndView mv = new ModelAndView("detailproduit");
-		Produit produit = produitService.getProduitById(idProduit);
-		mv.addObject("produit", produit);
+		Commande commande = commandeService.getCommandeById(id);
+		mv.addObject("commande", commande);
 		mv.addObject("displayname", displayname);
 		return mv;
 
@@ -48,30 +48,31 @@ public class DetailProduitController {
 
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public ModelAndView NewProduit(final HttpSession session) {
-		logger.info("new produit" + produitService.getHighProduitId());
+		logger.info("new commande" + commandeService.getHighCommandeId());
 		int idClientLog = (Integer) session.getAttribute("idClient");
 		Client client = clientService.getClientById(idClientLog);
 		String displayname = client.getPrenomClient() + " " + client.getNomClient();
 		ModelAndView mv = new ModelAndView("detailproduit");
-		int newId = (produitService.getHighProduitId() + 1);
-		Produit produit = new Produit();
-		produit.setIdProduit(newId);
-		produit.setNomProduit("A completer");
-		produit.setPrixUnitaireProduit(0);
-		produit.setShortDescriptionProduit("A completer");
-		produit.setDescriptionProduit("A completer");
-		produitService.insertProduit(produit);
-		logger.info(produit.getIdProduit());
-		mv.addObject("produit", produit);
+		int newId = (commandeService.getHighCommandeId() + 1);
+		Commande commande = new Commande();
+		commande.setId(newId);
+		commande.setLibelle("A completer");
+		commande.setDatedebut("A completer");
+		commande.setDatefin("A completer");
+		commande.setPersonnemaj("A completer");
+		commande.setType("A completer");
+		commandeService.insertCommande(commande);
+		logger.info(commande.getId());
+		mv.addObject("commande", commande);
 		mv.addObject("displayname", displayname);
 		return mv;
 
 	}
 
 	@RequestMapping(value = "valider", method = RequestMethod.POST)
-	public String Valider(@ModelAttribute(value = "produit") Produit produit, Model model) {
-		logger.info("Delete " + produit);
-		produitService.updateProduit(produit);
+	public String Valider(@ModelAttribute(value = "commande") Commande commande, Model model) {
+		logger.info("Update " + commande);
+		commandeService.updateCommande(commande);
 		return "redirect:/rechercheproduit";
 
 	}

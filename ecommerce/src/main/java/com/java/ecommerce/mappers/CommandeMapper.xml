@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.java.ecommerce.mappers.CommandeMapper">
+
+<!-- 
+ <resultMap type="Client" id="ClientResultMap">
+    <id property="idClient" column="idClient"/>
+    <result property="loginClient" column="loginClient"/>
+    <result property="pwdClient" column="pwdClient"/>
+    <result property="prenomClient" column="prenomClient"/>
+    <result property="nomClient" column="nomClient"/>   
+   </resultMap> -->
+
+  <select id="getCommandeById" parameterType="int" resultType="com.java.ecommerce.model.Commande">
+     SELECT 
+    *    
+     FROM commande
+     WHERE id = #{id}
+  </select>
+  
+   <select id="getHighCommandeId" resultType="int">
+SELECT MAX(id) from commande
+
+  
+</select>
+  <select id="getAllCommandes" resultType="com.java.ecommerce.model.Commande">
+   SELECT * FROM commande
+  </select>
+
+  <insert id="insertCommande">
+   INSERT INTO commande(id, libelle, datedebut, datefin, personnemaj, type)
+    VALUES(#{id}, #{libelle}, #{datedebut}, #{datefin}, #{personnemaj}, #{type})
+  </insert>
+
+  <update id="updateCommande">
+    UPDATE commande
+    SET
+     libelle= #{libelle},
+     datedebut = #{datedebut},
+     datefin = #{datefin},
+     personnemaj = #{personnemaj},
+     type = #{type}
+    WHERE id = #{id}
+  </update>
+
+  <delete id="deleteCommande" parameterType="int">
+    DELETE FROM commande WHERE id = #{id}
+  </delete>
+
+</mapper>

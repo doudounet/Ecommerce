@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.java.ecommerce.model.Client;
+import com.java.ecommerce.model.Commande;
 import com.java.ecommerce.model.Produit;
 import com.java.ecommerce.service.ClientService;
+import com.java.ecommerce.service.CommandeService;
 import com.java.ecommerce.service.ProduitService;
 
 @Controller
@@ -26,7 +28,7 @@ public class RechercheProduitController {
 	@Autowired
 	private ClientService clientService;
 	@Autowired
-	private ProduitService produitService;
+	private CommandeService commandeService;
 
 	protected final Log logger = LogFactory.getLog(getClass());
 
@@ -38,17 +40,21 @@ public class RechercheProduitController {
 		String displayname = client.getPrenomClient() + " " + client.getNomClient();
 
 		logger.info("Returning recherche produit view");
-		List<Produit> produits = produitService.getAllProduits();
+		List<Commande> commandes = commandeService.getAllCommandes();
+		//Commande commande = commandeService.getCommandeById(1);
 		ModelAndView mav = new ModelAndView("rechercheproduit");
-		mav.addObject("produits", produits);
+		//mav.addObject("commande", commande);
+		mav.addObject("commandes", commandes);
+		logger.info(commandes);
+		
 		mav.addObject("displayname", displayname);
 		return mav;
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String VoirDetail(@RequestParam(value = "id") Integer idProduit, final HttpSession session) {
-		logger.info("Delete " + idProduit);
-		produitService.deleteProduit(idProduit);
+	public String VoirDetail(@RequestParam(value = "id") Integer id, final HttpSession session) {
+		logger.info("Delete " + id);
+		commandeService.deleteCommande(id);
 		return "redirect:/rechercheproduit";
 
 	}

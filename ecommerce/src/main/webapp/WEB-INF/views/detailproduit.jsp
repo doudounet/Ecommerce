@@ -25,7 +25,7 @@
 			</li>
 			<li class="active"> <a href="#"> Bienvenue, ${displayname} !</a></li>
 			<li><a href="logout">Deconnexion</a></li>
-			<li><a href="rechercheproduit">Liste des produits</a></li>
+			<li><a href="rechercheproduit">Liste des commandes</a></li>
 			<li><a href="utilisateurs">Liste des Utilisateurs </a></li>
 
 		</ul>
@@ -43,7 +43,7 @@
 <div class="container">
     <div class="col-md-12">
         <div class="center-block text-center">
-            <h4> Interface de modification d'un produit </h4>
+            <h4> Interface de modification d'une commande </h4>
       
         </div>
         <div class="container">
@@ -54,25 +54,25 @@
 			<div class="row-fluid">
 			<div class="span12">
 				<fieldset>
-				<legend>Modification d'un produit </legend>
+				<legend>Modification d'une commande</legend>
 				<div class="row-fluid">
-				<form:form class="form-horizontal" method="post" modelAttribute="produit" action="valider">
+				<form:form class="form-horizontal" method="post" modelAttribute="commande" action="valider">
 				<form:errors path="*" cssStyle="color : red;"/>
 					<div class="control-group">
 					<div class="row">
 					<div class="col-md-3">
-						<label class="control-label"> Id du produit : </label>
-						</div>
+						<label class="control-label">Numéro de commande: </label>
+					  </div>
 					<div class="col-md-9">
-						<form:input type="text" path="idProduit" style="width:500px;"/>	
+						<form:input type="text" path="id" style="width:500px;"/>	
 					</div>
 					</div>
 					<div class="row">
 					<div class="col-md-3">
-						<label class="control-label"> Nom du produit : </label>
+						<label class="control-label"> Libellé : </label>
 						</div>
 					<div class="col-md-9">
-						<form:input type="text" path="nomProduit" style="width:500px;"/>	
+						<form:input type="text" path="libelle" style="width:500px;"/>	
 					</div>
 					</div>
 						
@@ -80,30 +80,40 @@
 					<div class="control-group">
 					<div class="row">
 					<div class="col-md-3">
-						<label class="control-label"> Prix du produit (en euros): </label>
+						<label class="control-label">Date de début: </label>
 					</div>
 					<div class="col-md-6">
-						<form:input type="text" path="prixUnitaireProduit" style="width:500px;" />	
+						<form:input type="text" path="datedebut" style="width:500px;" />	
 					</div>
 					</div>	
 					</div>
 					<div class="control-group">
 					<div class="row">
 					<div class="col-md-3">
-						<label class="control-label"> Description du produit : </label>
+						<label class="control-label"> Date de fin: </label>
 						</div>
 						<div class="col-md-6">
-						<form:textarea rows="4" cols="68" path="descriptionProduit" />
+						<form:input type="text" path="datefin" style="width:500px;" />
 						</div>
 					</div>
 					</div>
-					
+					<div class="control-group">
 					<div class="row">
 					<div class="col-md-3">
-						<label class="control-label"> Courte description du produit : </label>
+						<label class="control-label"> Dernière modifcation: </label>
 						</div>
+						<div class="col-md-6">
+						<form:input type="text" path="personnemaj" style="width:500px;" />
+						</div>
+					</div>
+					</div>
+                  
+					<div class="row">
+					<div class="col-md-3">
+						<label class="control-label"> Statut : </label>
+					  </div>
 					<div class="col-md-9">
-						<form:input type="text" path="shortDescriptionProduit" style="width:500px;"/>	
+						<form:input type="text" path="type" style="width:500px;"/>	
 					</div>
 					</div>	
 					</div>

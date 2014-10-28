@@ -103,41 +103,45 @@
 						<tr>
 							
 							
-							<th>Produit</th>
-							<th>Prix (en euros)</th>
-							<th>Description</th>
-							<th></th>
+							<th width="9%">Commande</th>
+							<th width="25%">Libellé</th>
+							<th width="12%">Début</th>
+							<th width="11%">Fin</th>
+                            <th width="16%">Par</th>
+                            <th width="7%">Statut</th>
+                            <th width="20%"></th>
+                            
 							
 
 
 						</tr>
 
 					</thead>
-					<c:forEach var="p" items="${produits}">
+					<c:forEach var="p" items="${commandes}">
 
 						<tbody>
 
 							<tr>
 
 
-								<td><c:out value="${p.nomProduit}"></c:out></td>
-								<td><c:out value="${p.prixUnitaireProduit}"></c:out></td>
-								<td><c:out value="${p.shortDescriptionProduit}"></c:out></td>
-								<td>
-								 
-									<button class="btn btn-info btn-sm">
+								<td><c:out value="${p.id}"></c:out></td>
+								<td><c:out value="${p.libelle}"></c:out></td>
+								<td><c:out value="${p.datedebut}"></c:out></td>
+								<td><c:out value="${p.datefin}"></c:out></td>
+                                <td><c:out value="${p.personnemaj}"></c:out></td>
+                                <td><c:out value="${p.type}"></c:out></td>
+                                <td><button class="btn btn-info btn-sm">
 									<%-- <a href="<c:url value="detail/${p.idProduit}"/>" style="color: #FFFFFF"> --%>
-										<a href="detail?id=${p.idProduit}" style="color: #FFFFFF;"> 
+										<a href="detail?id=${p.id}" style="color: #FFFFFF;"> 
 										 <span class="glyphicon glyphicon-pencil"> </span> Update </a>
 									</button>
 								
 								
 									<button class="btn btn-danger btn-sm">
-									<a href="delete?id=${p.idProduit}" style="color: #FFFFFF">
+									<a href="delete?id=${p.id}" style="color: #FFFFFF">
 										<span class="glyphicon glyphicon-remove"> </span>
-										Delete
-									</button>
-								</td>
+										Delete </a>
+									</button></td>
 
 							</tr>
 
