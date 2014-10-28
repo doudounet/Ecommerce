@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,6 +32,7 @@ public class DetailProduitController {
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	@ResponseBody
 	public ModelAndView VoirDetail(@RequestParam(value = "id", required = false) Integer idProduit, final HttpSession session) {
 		logger.info("ID " + idProduit);
 		int idClientLog = (Integer) session.getAttribute("idClient");

@@ -18,6 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Identification</title>
       <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" >
+      <link href="${pageContext.request.contextPath}/resources/css/Style.css" rel="stylesheet" >
          <script type='text/javascript'>
    function divaffiche(){ 
 	document.getElementById("demandepwd").style.display = "block"; 
@@ -39,8 +40,8 @@
    
 
 	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span12">
+		<div class="main">
+			<div class="form-2" style="text-align:center">
 				<fieldset>
 				<legend>Connexion E-commerce </legend>
 				

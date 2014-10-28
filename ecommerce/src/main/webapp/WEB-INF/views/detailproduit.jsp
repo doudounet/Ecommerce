@@ -13,9 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Détail</title>
 <link
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.css"
-	rel="stylesheet">
-	
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
 
 </head>
 <body>
